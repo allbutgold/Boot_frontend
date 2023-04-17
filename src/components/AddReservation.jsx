@@ -6,7 +6,6 @@ const AddReservation = () => {
   const URL = import.meta.env.VITE_BACKEND 
 
   useEffect(() => {
-    
       fetch(URL + "/api/v1/boats")
       .then((res) => res.json())
       .then((data) => {
@@ -26,13 +25,18 @@ const AddReservation = () => {
       body: JSON.stringify({ boatId: form.get("boat"), startDate, endDate }),
       headers: { "Content-Type": "application/json" }
     })
+    const resForBoat = await fetch(URL + "/api/v1/boat", {
+      method: "PUT",
+      body: JSON.stringify( { boatId: form.get("boat"), reservation:{ startDate : startDate, endDate : endDate }}),
+      headers: { "Content-Type": "application/json" }
+    })
     e.target.reset()
 }
 return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="boat">select boat</label>
       <select name="boat">
-        {boats.map((item, key) => <option value={item} key={item._id}>{item.name}</option>)}
+        {boats.map((item, key) => <option value={item._id} key={item._id}>{item.name}</option>)}
       </select>
       <label htmlFor="startDate">start Date</label>
       <input type="date" name="startDate" />
