@@ -22,10 +22,10 @@ const ReservationDetail = () => {
   }
   return (
     <div>
-      <h1>Reservation Detail</h1>
+      <h2>see all reservations</h2>
       {reservations.map((item, key) => 
-      <div key={key}>
-        <h4>{item.boat[0].name}</h4>
+      <div key={key} style={{margin: "50px"}}>
+        <p>{item.boat[0].name}</p>
         <p>Start Date: {formatDate(item.startDate)}</p>
         <p>End Date: {formatDate(item.endDate)}</p>
       </div>)}

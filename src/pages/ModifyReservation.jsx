@@ -1,10 +1,13 @@
 import ReservationDetail from "../components/ReservationDetail";
+import AddReservation from "../components/AddReservation.jsx";
 
 const ModifyReservation = () => {
   return ( 
     <div>
-      <h1>ModifyReservation</h1>
+      <h2>add a reservation</h2>
+      <AddReservation />
       <ReservationDetail />
+
     </div>
 
   );
