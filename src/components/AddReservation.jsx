@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 const AddReservation = () => {
   const [boats, setBoats] = useState([]);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   
   const URL = import.meta.env.VITE_BACKEND 
 
@@ -13,13 +15,34 @@ const AddReservation = () => {
         setBoats(data);
       })
   }, [])
-
-  const handleSubmit = async (e) => {
-    console.log('reservation made')
+  
+  const handleSubmitBesser = async (e) => {
     e.preventDefault()
     const form = new FormData(e.target)
-    const startDate = new Date(form.get("startDate")).getTime() 
-    const endDate = new Date(form.get("endDate")).getTime() 
+    const startDate = new Date(form.get("startDate")).getTime()
+    const endDate = new Date(form.get("endDate")).getTime()
+    setStartDate(startDate)
+    setEndDate(endDate)
+    const res = await 
+        fetch(URL + '/api/v1/availiableBoats', {
+          method: "POST",
+          body: JSON.stringify({ startDate: startDate, endDate: endDate}),
+          headers: { "Content-Type": "application/json" }
+        })
+        .then((res) => res.json())
+        .then((data) => { 
+          setBoats(data)
+          console.log(data)
+        })
+        e.target.reset()
+      }
+    
+  
+  
+  const handleSubmit = async (e) => {
+
+    e.preventDefault()
+    const form = new FormData(e.target)
     const res = await fetch(URL + "/api/v1/reservation", {
       method: "POST",
       body: JSON.stringify({ boat: boats.filter(boat => {
@@ -33,19 +56,26 @@ const AddReservation = () => {
       headers: { "Content-Type": "application/json" }
     })
     e.target.reset()
-}
+  }
 return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="boat">select boat</label>
-      <select name="boat">
-        {boats.map((item, key) => <option value={item._id} key={key}>{item.name}</option>)}
-      </select>
-      <label htmlFor="startDate">start Date</label>
-      <input type="date" name="startDate" />
-      <label htmlFor="endDate">end Date</label>
-      <input type="date" name="endDate" />
-      <button type="submit">Add Reservation</button>
+  <div>
+    <form onSubmit={handleSubmitBesser}>
+      <label htmlFor="startDate">start Date</label><br/>
+      <input type="date" name="startDate"/><br/>
+      <label htmlFor="endDate">end Date</label><br/>
+      <input type="date" name="endDate"/><br/>
+      <button type="submit">select dates</button>
     </form>
+
+    {startDate && endDate && <form onSubmit={handleSubmit}>
+    <select name="boat">
+        {boats.map((item, key) => 
+        <option value={item._id} key={key}>{item.name}</option>)}
+      </select><br/>
+      <button type="submit">make reservation</button>
+    </form>}
+
+  </div>
 )
 }
 
