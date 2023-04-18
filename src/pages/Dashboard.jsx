@@ -1,9 +1,12 @@
-import AddReservation from "../components/AddReservation.jsx";
+import ReservationCount from "../components/ReservationCount";
+import BoatsCount from "../components/BoatsCout";
 
 const Dashboard = () => {
   return ( 
     <div>
-      <AddReservation />
+      <h1>Dashboard</h1>
+      <ReservationCount />
+      <BoatsCount />
     </div>
   );
 }
