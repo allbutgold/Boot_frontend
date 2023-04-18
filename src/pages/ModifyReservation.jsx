@@ -1,6 +1,12 @@
+import ReservationDetail from "../components/ReservationDetail";
+
 const ModifyReservation = () => {
   return ( 
-    <h1>ModifyReservation</h1>
+    <div>
+      <h1>ModifyReservation</h1>
+      <ReservationDetail />
+    </div>
+
   );
 }
 

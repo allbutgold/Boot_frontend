@@ -18,11 +18,13 @@ const AddReservation = () => {
     console.log('reservation made')
     e.preventDefault()
     const form = new FormData(e.target)
-    const startDate = new Date(form.get("startDate")).getTime() / 1000
-    const endDate = new Date(form.get("endDate")).getTime() / 1000
+    const startDate = new Date(form.get("startDate")).getTime() 
+    const endDate = new Date(form.get("endDate")).getTime() 
     const res = await fetch(URL + "/api/v1/reservation", {
       method: "POST",
-      body: JSON.stringify({ boatId: form.get("boat"), startDate, endDate }),
+      body: JSON.stringify({ boat: boats.filter(boat => {
+        return boat._id === form.get("boat")
+      }), startDate, endDate }),
       headers: { "Content-Type": "application/json" }
     })
     const resForBoat = await fetch(URL + "/api/v1/boat", {
@@ -36,7 +38,7 @@ return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="boat">select boat</label>
       <select name="boat">
-        {boats.map((item, key) => <option value={item._id} key={item._id}>{item.name}</option>)}
+        {boats.map((item, key) => <option value={item._id} key={key._id}>{item.name}</option>)}
       </select>
       <label htmlFor="startDate">start Date</label>
       <input type="date" name="startDate" />
