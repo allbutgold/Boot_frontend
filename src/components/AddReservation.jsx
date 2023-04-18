@@ -9,7 +9,7 @@ const AddReservation = () => {
       fetch(URL + "/api/v1/boats")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         setBoats(data);
       })
   }, [])
@@ -38,7 +38,7 @@ return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="boat">select boat</label>
       <select name="boat">
-        {boats.map((item, key) => <option value={item._id} key={key._id}>{item.name}</option>)}
+        {boats.map((item, key) => <option value={item._id} key={key}>{item.name}</option>)}
       </select>
       <label htmlFor="startDate">start Date</label>
       <input type="date" name="startDate" />

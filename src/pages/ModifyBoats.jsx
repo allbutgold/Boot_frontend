@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const ModifyBoats = () => {
-  const [boats, setBoats] = useState([])
+  let [boats, setBoats] = useState([])
   const URL = import.meta.env.VITE_BACKEND 
 
   useEffect(()=> {
@@ -29,12 +29,13 @@ const ModifyBoats = () => {
       headers: { "Content-Type": "application/json" }
     })
     console.log(res);
-    const newBoats = boats
-    newBoats.push(bodyData)
+    const newBoats = [...boats]
+    newBoats.push(bodyData) 
     setBoats(newBoats)
+    
     e.target.reset()
   }
-
+console.log(boats)
   return ( 
     <div>
       <h1>The Boats</h1>

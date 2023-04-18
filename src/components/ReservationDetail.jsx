@@ -11,7 +11,7 @@ const ReservationDetail = () => {
     fetch(URL + "/api/v1/reservations")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data)
+      // console.log(data)
       setReservations(data)
     })
   }, [])

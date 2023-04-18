@@ -8,9 +8,8 @@ useEffect(() => {
   fetch(URL + "/api/v1/boats")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data)
       setBoats(data)
-      console.log(data)
+      // console.log(data)
     })
 }, [])
 
