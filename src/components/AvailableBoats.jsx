@@ -15,7 +15,7 @@ const AvailableBoats = () => {
       setBoats(data)
       console.log(data)
     })
-  })
+  }, [])
   return (
     <div>
       <h2>Available Boats</h2>
