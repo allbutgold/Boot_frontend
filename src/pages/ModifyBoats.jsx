@@ -41,16 +41,16 @@ console.log(boats)
       <h1>The Boats</h1>
       <h2>Add Boat</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name"></label>
-        <input type="text" name="name" id="" />
-        <label htmlFor="material"></label>
-        <select name="material" id="">
+        <label htmlFor="name">name of the boat</label><br/>
+        <input type="text" name="name" id="" /><br/><br/>
+        <label htmlFor="material">material</label><br/>
+        <select name="material" id=""><br/>
           <option value="Holz">Holz</option>
           <option value="Metall">Metall</option>
           <option value="GFK">GFK</option>
           <option value="Pappe">Pappe</option>
           <option value="Seelen">Seelen</option>
-        </select>
+        </select><br/><br/>
         <button type="submit">Add Boat</button>
 
       </form>
