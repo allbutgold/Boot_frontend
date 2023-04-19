@@ -59,8 +59,9 @@ const AddReservation = () => {
   }
 return (
   <section>
-    <h2>add a reservation</h2>
+    
     <form onSubmit={handleSubmitBesser}>
+    <h2>add a reservation</h2>
       <label htmlFor="startDate">start Date</label><br/>
       <input type="date" name="startDate"/><br/><br/>
       <label htmlFor="endDate">end Date</label><br/>
