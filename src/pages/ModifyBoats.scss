@@ -1,0 +1,45 @@
+
+
+
+h2.headingForms {
+    background-color: darkslateblue;
+    border-radius: 20px;
+    border: thin solid white;
+}
+form {
+    background-color: darkslateblue;
+    padding: 20px;
+    border: thin solid white;
+    border-radius: 20px;
+
+    div.labelDiv{
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        label {
+            margin-right: 10px;
+        } 
+    }
+}
+
+
+
+h2.headingBoats {
+    background-color: darkslateblue;
+    border-radius: 20px;
+    border: thin solid white;
+}
+.boats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .boatDiv {
+        margin: 20px 20px;
+        padding: 20px;
+        border-radius: 20px;
+        border: thin solid white;
+        background-color: darkslateblue;
+    }
+}

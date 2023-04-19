@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import styles from "./ModifyBoats.scss"
 
 const ModifyBoats = () => {
   let [boats, setBoats] = useState([])
@@ -37,35 +38,43 @@ const ModifyBoats = () => {
   }
 console.log(boats)
   return ( 
-    <div>
+    <div className={styles}>
       <h1>The Boats</h1>
-      <h2>Add Boat</h2>
+      <h2 className="headingForms">Add Boat</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">name of the boat</label><br/>
-        <input type="text" name="name" id="" /><br/><br/>
-        <label htmlFor="material">material</label><br/>
-        <select name="material" id=""><br/>
-          <option value="Holz">Holz</option>
-          <option value="Metall">Metall</option>
-          <option value="GFK">GFK</option>
-          <option value="Pappe">Pappe</option>
-          <option value="Seelen">Seelen</option>
-        </select><br/><br/>
+        <div className="labelDiv">
+          <label htmlFor="name">name of the boat</label><br/>
+          <input type="text" name="name" id="" /><br/><br/>
+        </div>
+        <div className="labelDiv">
+          <label htmlFor="material">material</label><br/>
+          <select name="material" id=""><br/>
+            <option value="Holz">Holz</option>
+            <option value="Metall">Metall</option>
+            <option value="GFK">GFK</option>
+            <option value="Pappe">Pappe</option>
+            <option value="Seelen">Seelen</option>
+          </select><br/><br/>
+        </div>
+        
         <button type="submit">Add Boat</button>
 
       </form>
-      <h2>All Boats</h2>
-      {
-        boats.length>0 && boats.map((boat) =>{
-          return (
-            <div>
-              <h3>{boat.name}</h3>
-              <p>{boat.material}</p>
-            </div>
-            
-          )
-        })
-      }
+      <h2 className="headingBoats">All Boats</h2>
+      <div className="boats">
+        {
+          boats.length>0 && boats.map((boat) =>{
+            return (
+              <div className="boatDiv">
+                <h3>{boat.name}</h3>
+                <p>{boat.material}</p>
+              </div>
+              
+            )
+          })
+        }
+      </div>
+      
       
     </div>
     
