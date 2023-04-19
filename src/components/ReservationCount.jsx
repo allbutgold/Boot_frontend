@@ -9,7 +9,7 @@ useEffect(() => {
     .then((res) => res.json())
     .then((data) => {
       setReservations(data)
-      //console.log(data)
+
     })
 }, [])
 
