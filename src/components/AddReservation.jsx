@@ -58,7 +58,8 @@ const AddReservation = () => {
     e.target.reset()
   }
 return (
-  <div>
+  <section>
+    <h2>add a reservation</h2>
     <form onSubmit={handleSubmitBesser}>
       <label htmlFor="startDate">start Date</label><br/>
       <input type="date" name="startDate"/><br/><br/>
@@ -71,11 +72,11 @@ return (
     <select name="boat">
         {boats.map((item, key) => 
         <option value={item._id} key={key}>{item.name}</option>)}
-      </select><br/>
+      </select><br/><br/>
       <button type="submit">make reservation</button>
     </form>}
 
-  </div>
+  </section>
 )
 }
 

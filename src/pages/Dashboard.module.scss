@@ -1,0 +1,22 @@
+.Dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  h1 {
+    width: 100vw;
+    margin-bottom: 50px;
+  }
+  div {
+    margin: 30px;
+    height: 200px;
+    width: 300px;
+    border: 3px solid white;
+    border-radius: 20px;
+    background-color: darkslateblue;
+    p {
+      font-size: 40px;
+    }
+  }
+
+}

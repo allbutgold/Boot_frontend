@@ -1,0 +1,45 @@
+.Reservation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  h2 {
+    margin-bottom: 10px;
+
+  }
+  section {
+    width: 500px;
+    margin: 30px;
+    border: 3px solid white;
+    border-radius: 20px;
+    background-color: darkslateblue;
+    form {
+      padding: 20px;
+    }
+  }
+  div {
+    border: 3px solid white;
+    border-radius: 20px;
+    width: 500px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  div div {
+    padding: 20px;
+    margin: auto;
+    height: 200px;
+    width: 300px;
+    border: 3px solid white;
+    border-radius: 20px;
+    background-color: darkslateblue;
+    p:nth-of-type(1) {
+      font-size: 30px;
+      width: 250px;
+      margin: 0;
+    }
+    
+  }
+}
