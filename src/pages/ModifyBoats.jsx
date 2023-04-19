@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import styles from "./ModifyBoats.scss"
+import styles from "./ModifyBoats.module.scss"
 
 const ModifyBoats = () => {
   let [boats, setBoats] = useState([])
