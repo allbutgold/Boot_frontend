@@ -61,9 +61,9 @@ return (
   <div>
     <form onSubmit={handleSubmitBesser}>
       <label htmlFor="startDate">start Date</label><br/>
-      <input type="date" name="startDate"/><br/>
+      <input type="date" name="startDate"/><br/><br/>
       <label htmlFor="endDate">end Date</label><br/>
-      <input type="date" name="endDate"/><br/>
+      <input type="date" name="endDate"/><br/><br/> 
       <button type="submit">select dates</button>
     </form>
 
